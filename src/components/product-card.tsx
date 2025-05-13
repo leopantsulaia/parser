@@ -1,7 +1,7 @@
 import type { Product } from "@/types";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+// import Image from "next/image"; // Image import removed as it's no longer used
 import { ExternalLinkIcon } from "lucide-react";
 
 interface ProductCardProps {
@@ -10,26 +10,16 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <a 
-      href={product.url} 
-      target="_blank" 
-      rel="noopener noreferrer" 
+    <a
+      href={product.url}
+      target="_blank"
+      rel="noopener noreferrer"
       className="block hover:shadow-green-500/30 transition-shadow duration-300 rounded-lg"
       aria-label={`View ${product.name} on ${product.websiteName}`}
     >
       <Card className="h-full flex flex-col bg-card text-card-foreground border-border shadow-lg hover:border-primary transition-colors duration-300">
         <CardHeader>
-          {product.imageUrl && (
-            <div className="relative w-full h-48 mb-4 rounded-md overflow-hidden">
-              <Image
-                src={product.imageUrl}
-                alt={product.name}
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint="product item"
-              />
-            </div>
-          )}
+          {/* Image display removed */}
           <CardTitle className="text-lg font-semibold leading-tight">{product.name}</CardTitle>
           <CardDescription className="text-sm text-muted-foreground">{product.websiteName}</CardDescription>
         </CardHeader>

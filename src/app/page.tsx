@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { searchProductsAction, type SearchState } from "./actions";
 import { ProductCard } from "@/components/product-card";
 import { Button } from "@/components/ui/button";
@@ -30,7 +31,7 @@ function SubmitButton() {
 
 export default function HomePage() {
   const initialState: SearchState = null;
-  const [state, formAction] = useFormState(searchProductsAction, initialState);
+  const [state, formAction] = useActionState(searchProductsAction, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 

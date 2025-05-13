@@ -13,7 +13,10 @@ import { useToast } from "@/hooks/use-toast";
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-75">
+    <Button
+      type="submit"
+      disabled={pending}
+      className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-75">
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -31,12 +34,19 @@ function SubmitButton() {
 
 export default function HomePage() {
   const initialState: SearchState = null;
-  const [state, formAction] = useActionState(searchProductsAction, initialState);
+  const [state, formAction] = useActionState(
+    searchProductsAction,
+    initialState
+  );
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (state?.message && (state.message.includes("error") || state.message.includes("Please enter a product name"))) {
+    if (
+      state?.message &&
+      (state.message.includes("error") ||
+        state.message.includes("Please enter a product name"))
+    ) {
       toast({
         title: state.message.includes("error") ? "Error" : "Info",
         description: state.message,
@@ -45,14 +55,18 @@ export default function HomePage() {
     }
   }, [state?.message, state?.timestamp, toast]);
 
-
   return (
     <div className="min-h-screen flex flex-col p-4 md:p-8 selection:bg-primary/40 selection:text-foreground">
       <header className="text-center mb-8 md:mb-12">
         <div className="flex items-center justify-center mb-2">
+          <img
+            src="/favicon.ico"
+            alt="Site Logo"
+            className="h-10 w-10 md:h-12 md:w-12 text-primary mr-3"
+          />
           <TagIcon className="h-10 w-10 md:h-12 md:w-12 text-primary mr-3" />
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Price Wise
+            ზუმერული ფასები, ფარსები, პარსები
           </h1>
         </div>
         <p className="text-lg text-muted-foreground">
@@ -61,11 +75,10 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow w-full max-w-5xl mx-auto">
-        <form 
+        <form
           ref={formRef}
-          action={formAction} 
-          className="mb-10 p-6 bg-card border border-border rounded-lg shadow-md"
-        >
+          action={formAction}
+          className="mb-10 p-6 bg-card border border-border rounded-lg shadow-md">
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <Input
               type="search"
@@ -81,11 +94,15 @@ export default function HomePage() {
 
         <div className="mt-6">
           {state === null && (
-             <div className="text-center text-muted-foreground py-10">
-                <SearchIcon className="mx-auto h-12 w-12 mb-4" />
-                <p className="text-xl">Enter a product name above to start your search.</p>
-                <p>We scan sites like Zoommer, Alta, EE.GE, and PCShop.ge for you!</p>
-             </div>
+            <div className="text-center text-muted-foreground py-10">
+              <SearchIcon className="mx-auto h-12 w-12 mb-4" />
+              <p className="text-xl">
+                ჩასწერე ტეხნიკის სახელი above to start your search.
+              </p>
+              <p>
+                We scan sites like Zoommer.ge, Alta.ge, EE.GE, and PCShop.ge for you!
+              </p>
+            </div>
           )}
           {state?.products && state.products.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -94,17 +111,21 @@ export default function HomePage() {
               ))}
             </div>
           )}
-          {state?.products && state.products.length === 0 && state.message && !state.message.includes("Please enter") &&(
-            <div className="text-center text-muted-foreground py-10">
-              <p className="text-xl">{state.message}</p>
-            </div>
-          )}
+          {state?.products &&
+            state.products.length === 0 &&
+            state.message &&
+            !state.message.includes("Please enter") && (
+              <div className="text-center text-muted-foreground py-10">
+                <p className="text-xl">{state.message}</p>
+              </div>
+            )}
         </div>
       </main>
 
       <footer className="text-center mt-12 py-6 border-t border-border">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Price Wise. All prices and product data are sourced from respective retailers.
+          &copy; {new Date().getFullYear()} By LeonPantsulaia. All rights
+          reserved.
         </p>
       </footer>
     </div>

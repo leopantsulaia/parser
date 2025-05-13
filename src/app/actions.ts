@@ -13,6 +13,15 @@ const MOCK_PRODUCTS: Product[] = [
   { id: '6', name: 'Dell G15 5520 Gaming Laptop', price: '3100 GEL', websiteName: 'alta.ge', url: 'https://alta.ge/notebooks-and-accessories/notebooks/dell-g15-5520-dark-shadow-grey-gn5520fi716h1r6n5su-15-6-fhd-120hz-intel-core-i7-12700h-16gb-512gb-ssd-nvidia-rtx-3060-6gb.html' },
   { id: '7', name: 'iPhone 15 Pro Max', price: '4200 GEL', websiteName: 'zoommer.ge', url: 'https://zoommer.ge/smartphones/apple-iphone-15-pro-max-256gb-blue-titanium' },
   { id: '8', name: 'Samsung Galaxy S24 Ultra', price: '3800 GEL', websiteName: 'alta.ge', url: 'https://alta.ge/telephony-and-communications/smartphones/samsung-galaxy-s24-ultra-12gb-256gb-sm-s928bzkgeuc-titanium-black.html' },
+  // Added more iPhone 15 models
+  { id: '9', name: 'iPhone 15 Pro', price: '3800 GEL', websiteName: 'alta.ge', url: 'https://alta.ge/smartphones/apple-iphone-15-pro-128gb-natural-titanium-new' },
+  { id: '10', name: 'iPhone 15', price: '3000 GEL', websiteName: 'ee.ge', url: 'https://ee.ge/smartphones/apple-iphone-15-128gb-pink-new' },
+  { id: '11', name: 'iPhone 15 Plus', price: '3400 GEL', websiteName: 'pcshop.ge', url: 'https://pcshop.ge/smartphones/apple-iphone-15-plus-256gb-black-new' },
+  // Added iPhone 16 models (mock data)
+  { id: '12', name: 'iPhone 16 Pro Max', price: '4800 GEL', websiteName: 'zoommer.ge', url: 'https://zoommer.ge/smartphones/apple-iphone-16-pro-max-concept-new' },
+  { id: '13', name: 'iPhone 16 Pro', price: '4300 GEL', websiteName: 'alta.ge', url: 'https://alta.ge/smartphones/apple-iphone-16-pro-concept-new' },
+  { id: '14', name: 'iPhone 16', price: '3500 GEL', websiteName: 'ee.ge', url: 'https://ee.ge/smartphones/apple-iphone-16-concept-new' },
+  { id: '15', name: 'iPhone 16 Plus', price: '3900 GEL', websiteName: 'pcshop.ge', url: 'https://pcshop.ge/smartphones/apple-iphone-16-plus-concept-new' },
 ];
 
 export type SearchState = {
